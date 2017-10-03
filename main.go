@@ -31,14 +31,15 @@ func getMovies()  []movie{
 				val, exist := selection.Attr("itemprop")
 				if exist && val == "summary"{
 					m.name = selection.Text()
+					m.rating = selection.Parent().Parent().Find("span.raiting").Text()
 					movies = append(movies, m)
 				}
 			})
 
-			selection.Find("a.media span").Each(func(count int, selection *goquery.Selection) {
-				log.Print(selection.Html())
-				log.Print(count)
-			})
+			//selection.Find("a.media span").Each(func(count int, selection *goquery.Selection) {
+			//	log.Print(selection.Html())
+			//	log.Print(count)
+			//})
 		}
 
 
